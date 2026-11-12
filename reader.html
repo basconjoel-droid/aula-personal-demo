@@ -43,67 +43,37 @@ main{max-width:1050px;padding:20px 24px 120px}
 textarea:focus,input:focus,select:focus{outline:2px solid #8dc6ef;outline-offset:1px}
 .app-build{display:inline-flex;gap:7px;align-items:center;background:#e7f2fc;color:#165a91;border-radius:30px;padding:7px 12px;font-size:11px;font-weight:700}
 @media(max-width:700px){header{padding:16px 18px}main{padding:12px 16px 110px}.home-brand{font-size:43px}.home-actions{grid-template-columns:1fr}.home-action{min-height:100px}.folder-section{border-radius:22px}.doc-card{padding:17px 13px}.reader-mode main{padding:0 10px 110px}.reader-mode .reader-main{padding:12px;border-radius:18px}.reader-mode .reader-close{padding:12px 2px}.reader-mode .reader-quick{right:14px;bottom:18px}.reader-mode .pdfbox{padding:6px;min-height:320px}.reader-mode .reader-main .toolbar{gap:7px}.reader-mode .reader-main .btn{padding:10px 12px;font-size:13px}}
-/* Unified dark study experience — v4 */
-:root{--ink:#f5f3ff;--blue:#aa92ff;--blue2:#7b63e6;--soft:#19192f;--line:#3c385b;--muted:#b5b2cf}
-body,body.reader-mode{background:radial-gradient(ellipse at 85% 0%,#30275c 0%,transparent 45%),#111223;color:#f5f3ff}
-header{background:transparent;color:#f5f3ff;max-width:1200px}
-header>b{color:#fff}header a{color:#c7b9ff}
-main{max-width:1150px}
-.home-eyebrow{color:#ae9cff}
-.home-brand{color:#fff}
-.home-action,.folder-section,.folder-heading,.doc-card,.doc-menu,.panel,.reader-mode .reader-main,.reader-tools .panel{background:#202039;color:#f6f3ff;border-color:#3d3a5a}
-.home-action{background:linear-gradient(145deg,#30294e,#22223b);box-shadow:0 10px 28px #05051024}
-.home-action strong,.doc-title,.library-header h2,#library .library-header h2{color:#fff}
-.home-action span,.doc-meta,.folder-heading strong,.small,p,.muted{color:#b9b6d0}
-.home-action:hover,.doc-card:hover{background:#302a4e}
-.folder-section{box-shadow:0 12px 30px #05051022}
-.folder-heading{border-color:#48435e}
-.doc-card,.doc-menu{border-color:#3b3953}
-.doc-icon{background:linear-gradient(145deg,#6e53b6,#473875);color:#f5eaff}
-.doc-status{background:#263c42;color:#9be6c5}
-.doc-chevron{color:#b3a9d2}
-.doc-menu summary{color:#bbaaff}
-.folder-actions button{background:#37304e;color:#e4dcff}
-.btn,.upload-sticky{background:linear-gradient(110deg,#a993ff,#8669ee);color:#19132e;box-shadow:0 7px 20px #09051835}
-.btn.secondary{background:#34304f;color:#ede7ff}
-.btn.danger{background:#593044;color:#fff}
-input,textarea,select,.library-controls select{background:#19192e;color:#f6f3ff;border-color:#504968}
-input::placeholder,textarea::placeholder{color:#9994b5}
-.status{color:#c7baf2}.pages{color:#fff}
-.reader-mode .reader-close{background:#17172de8;border-color:#393654;backdrop-filter:blur(16px);color:#fff}
-.reader-mode .pdfbox{background:#303047}
-.reader-mode .reader-quick{background:linear-gradient(110deg,#a993ff,#8464e5);color:#1b1532;box-shadow:0 10px 26px #05051070}
-.tool-tab{background:#302d49;color:#ddd6f4}
-.tool-tab[aria-selected=true]{background:#a993ff;color:#1b1532}
-.app-build{background:#30294d;color:#c9baff}
-#library .library-header h2{color:#fff}
-.reader-mode .reader-main{box-shadow:0 10px 30px #07071435}
-a{color:#bba9ff}
-.home-only .home-brand{letter-spacing:-2px}
-/* V5 color system across temario and reader */
-body,body.reader-mode{background:radial-gradient(ellipse at 90% 0%,#403069 0%,transparent 42%),radial-gradient(ellipse at 0% 85%,#173951 0%,transparent 46%),#111223}
-.home-eyebrow{color:#8fdef9}
-.home-brand{background:linear-gradient(100deg,#fff 35%,#bda7ff 67%,#8fe9ff);background-clip:text;-webkit-background-clip:text;color:transparent}
-.home-action:first-child{background:linear-gradient(125deg,#403068,#25233d);border-color:#6d58a0}
-.home-action:last-child{background:linear-gradient(125deg,#1b4c60,#22263f);border-color:#33738a}
-.home-action:first-child strong{color:#dfd0ff}
-.home-action:last-child strong{color:#a3ecf7}
-#library .library-header h2{background:linear-gradient(95deg,#fff,#b5dfff);background-clip:text;-webkit-background-clip:text;color:transparent}
-.folder-section:nth-child(4n+1){border-color:#645189}
-.folder-section:nth-child(4n+2){border-color:#326d80}
-.folder-section:nth-child(4n+3){border-color:#81506d}
-.folder-section:nth-child(4n){border-color:#786339}
-.doc-icon{background:linear-gradient(140deg,#6b4caa,#3c6da2);color:#fff}
-.doc-card:nth-of-type(3n+2) .doc-icon{background:linear-gradient(135deg,#147b96,#2b547d)}
-.doc-card:nth-of-type(3n) .doc-icon{background:linear-gradient(135deg,#c25d83,#8e4f94)}
-.doc-status{background:#254c4d;color:#a1f3d3}
-.upload-sticky,.btn{background:linear-gradient(115deg,#b69cff,#78d9f3);color:#171a35}
-.reader-mode .reader-quick{background:linear-gradient(110deg,#ad92ff,#72dcf3);color:#1a1937}
-.reader-mode .reader-main{border-color:#51477b}
-.reader-mode .reader-close{border-bottom-color:#50476b}
-.tool-tab[aria-selected=true]{background:linear-gradient(115deg,#b7a0ff,#86d9ef);color:#1d1c37}
-.app-build{background:linear-gradient(110deg,#453267,#1e5368);color:#d4f3ff}
-</style></head><body><header><b>✦ Aula Personal <span class="muted">/ Mi temario</span></b><div style="text-align:right"><a href="./index.html">← Inicio</a><div class="small" id="appVersion"><span class="app-build">● Versión 5 · 12 nov 2026</span></div></div></header><main><div class="reader-close"><button class="btn secondary" id="backToLibrary">‹ Temario</button><strong id="readerTitle">Mi temario</strong><button class="btn secondary" id="showTools">Herramientas ☰</button></div><button class="reader-quick" id="quickExplain">✦ Explícamelo fácil</button><div class="home-only"><div class="home-eyebrow">OPOSICIÓN · EXAMINADOR DE TRÁFICO</div><div class="home-brand">Aula Personal</div><p style="margin:-12px 0 24px;color:#718396;font-size:14px">Tu espacio para preparar la oposición, a tu ritmo.</p><div class="home-actions"><button class="home-action" id="homeTests"><div><strong>☑ Practicar test</strong><span>Preguntas para repasar el temario</span></div>›</button><button class="home-action" id="homeProgress"><div><strong>↗ Mi progreso</strong><span>Continúa tu estudio y revisa tus avances</span></div>›</button></div></div><div class="toolbar home-only" style="justify-content:space-between;margin-bottom:18px"><div><div class="small">BIBLIOTECA PERSONAL · Actualizada: 2026-11-12 · Biblioteca por carpetas</div><h1>Estudia tu temario</h1><p>PDF, progreso de lectura, marcadores y apuntes.</p></div></div>
+/* V6: return to the comfortable light Lovable-inspired layout, with playful color */
+body{background:radial-gradient(circle at 85% 0%,#e9e3ff 0%,transparent 35%),radial-gradient(circle at 0% 70%,#e3f5ff 0%,transparent 38%),#f8f7f5;color:#17263c}
+.home-brand{color:#17263c;font-family:system-ui,-apple-system,sans-serif;font-weight:850}
+.home-eyebrow{color:#6b85b4}
+.home-action{background:#fff;border:1px solid #e5e7f2;color:#17263c}
+.home-action:first-child{border-left:5px solid #9473e9}
+.home-action:last-child{border-left:5px solid #22a7c5}
+.home-action strong{color:#17263c}
+.home-action span,.doc-meta,.folder-heading strong,.small,p,.muted{color:#68798c}
+#library .library-header h2,.doc-title{color:#17263c}
+.folder-section,.folder-heading,.doc-card,.doc-menu,.panel,.reader-mode .reader-main,.reader-tools .panel{background:#fff;color:#17263c;border-color:#e7e7ef}
+.doc-card:hover{background:#f7f8ff}
+.doc-icon{background:#eee5ff;color:#7250bc}
+.doc-card:nth-child(3n+2) .doc-icon{background:#dff7fb;color:#087f99}
+.doc-card:nth-child(3n) .doc-icon{background:#ffeced;color:#c45875}
+.doc-status{background:#e5f6ef;color:#23815c}
+.folder-heading{background:#fbfaff}
+.btn,.upload-sticky{background:linear-gradient(110deg,#7355d9,#4278e5);color:#fff}
+.btn.secondary{background:#edeefa;color:#5544a1}
+.btn.danger{background:#fff0f1;color:#aa3f57}
+input,textarea,select,.library-controls select{background:#fff;color:#17263c;border-color:#dfe3eb}
+.status{color:#53667f}.pages{color:#17263c}
+.reader-mode{background:#f8f7f5}
+.reader-mode .reader-close{background:#f8f7f5ec;color:#17263c;border-color:#e4e6ee}
+.reader-mode .reader-main{box-shadow:0 8px 30px #2334590d}
+.reader-mode .pdfbox{background:#e9edf4}
+.reader-mode .reader-quick{background:linear-gradient(115deg,#7657dc,#397bc7);color:#fff}
+.tool-tab{background:#f1f2f8;color:#455776}
+.tool-tab[aria-selected=true]{background:#7154d5;color:#fff}
+.app-build{background:#eee9ff;color:#6146b7}
+</style></head><body><header><b>✦ Aula Personal <span class="muted">/ Mi temario</span></b><div style="text-align:right"><a href="./index.html">← Inicio</a><div class="small" id="appVersion"><span class="app-build">● Versión 6 · 13 nov 2026</span></div></div></header><main><div class="reader-close"><button class="btn secondary" id="backToLibrary">‹ Temario</button><strong id="readerTitle">Mi temario</strong><button class="btn secondary" id="showTools">Herramientas ☰</button></div><button class="reader-quick" id="quickExplain">✦ Explícamelo fácil</button><div class="home-only"><div class="home-eyebrow">OPOSICIÓN · EXAMINADOR DE TRÁFICO</div><div class="home-brand">Aula Personal</div><p style="margin:-12px 0 24px;color:#718396;font-size:14px">Tu espacio para preparar la oposición, a tu ritmo.</p><div class="home-actions"><button class="home-action" id="homeTests"><div><strong>☑ Practicar test</strong><span>Preguntas para repasar el temario</span></div>›</button><button class="home-action" id="homeProgress"><div><strong>↗ Mi progreso</strong><span>Continúa tu estudio y revisa tus avances</span></div>›</button></div></div><div class="toolbar home-only" style="justify-content:space-between;margin-bottom:18px"><div><div class="small">BIBLIOTECA PERSONAL · Actualizada: 2026-11-12 · Biblioteca por carpetas</div><h1>Estudia tu temario</h1><p>PDF, progreso de lectura, marcadores y apuntes.</p></div></div>
 <section class="panel" id="library"><div class="library-header"><h2>Mi temario <span id="docCount" class="small" style="font-weight:400;margin-left:10px"></span></h2><button class="btn secondary" id="toggleLibrary" style="display:none">Ocultar biblioteca</button></div><div class="library-body"><div class="library-controls"><select id="folderFilter" aria-label="Filtrar documentos por carpeta"></select><button class="btn secondary" id="newFolder">＋ Carpeta</button></div><input id="upload" type="file" accept="application/pdf,.pdf" multiple class="hidden"><div id="docs" class="small" style="margin-top:15px">Cargando biblioteca…</div><div id="status" class="status"></div><label class="btn upload-sticky" for="upload">＋ Añadir PDF</label></div></section>
 <section id="workspace" class="layout hidden"><div class="panel"><div class="toolbar" style="justify-content:space-between"><h2 id="filename" style="overflow-wrap:anywhere"></h2><button class="btn secondary" id="bookmark">☆ Marcar página</button></div><div class="toolbar" style="margin-bottom:13px"><button class="btn secondary" id="prev">← Anterior</button><span id="pageinfo" class="pages"></span><button class="btn secondary" id="next">Siguiente →</button><input id="goto" type="number" min="1" placeholder="Ir a pág." style="width:110px"><button class="btn secondary" id="go">Ir</button></div><div class="pdfbox"><canvas id="canvas"></canvas></div><div class="panel" style="margin:15px 0 0"><h2>Buscar en el documento</h2><p class="small">Busca palabras o frases en el texto del PDF. Los resultados indican la página exacta.</p><div class="toolbar"><input id="searchQuery" type="search" placeholder="Ej.: artículo 116, referéndum…" style="flex:1;min-width:150px"><button class="btn secondary" id="searchBtn">Buscar</button></div><div id="searchStatus" class="status"></div><div id="searchResults" style="margin-top:12px"></div></div><div class="status" id="renderstatus"></div></div><aside><div class="panel"><h2>Mis apuntes</h2><p class="small">Se guardan para la página actual.</p><textarea id="note" placeholder="Escribe lo importante de esta página…"></textarea><div class="toolbar" style="margin-top:10px"><button class="btn" id="saveNote">Guardar apunte</button></div><div id="notestatus" class="status"></div></div><div class="panel"><h2>IA del temario <span class="small">· Conexión opcional</span></h2><p class="small">Configura la IA una vez. Puedes recordar la contraseña solo en este dispositivo si es de uso personal.</p><details id="aiSettings"><summary style="cursor:pointer;color:#155487;font-weight:650;margin-bottom:10px">⚙ Configuración de IA</summary><input id="aiEndpoint" type="url" placeholder="https://tu-servicio.workers.dev" style="width:100%;margin-bottom:8px"><input id="aiPassword" type="password" placeholder="Contraseña del servicio" style="width:100%;margin-bottom:8px"><label class="small" style="display:flex;align-items:center;gap:8px;margin:9px 0"><input id="rememberAiPassword" type="checkbox"> Recordar contraseña en este dispositivo</label><p class="small">Si activas esta opción, la contraseña se guardará sin cifrar en el almacenamiento del navegador. Úsala solo en un dispositivo privado.</p><button class="btn secondary" id="saveAiEndpoint">Guardar configuración</button><button class="btn secondary" id="forgetAiPassword" type="button">Olvidar contraseña guardada</button></details><div class="toolbar" style="margin-top:12px"><button class="btn" id="aiAskBtn">Explicar con IA</button></div><div id="aiStatus" class="status"></div><div id="aiAnswer" class="notes" style="margin-top:10px"></div></div><div class="panel"><h2>Asistente del temario</h2><p class="small">Haz una pregunta sobre el PDF abierto. Encontrará fragmentos relacionados y te mostrará la página de origen. También puedes utilizar «Explicar con IA» para generar una respuesta.</p><textarea id="askQuestion" placeholder="Ej.: ¿Qué dice el temario sobre el estado de alarma?" style="min-height:85px"></textarea><button class="btn" id="askBtn" style="margin-top:9px">Consultar mi PDF</button><div id="askStatus" class="status"></div><div id="askResults" style="margin-top:12px"></div></div><div class="panel"><h2>Reconocer texto (OCR)</h2><p class="small">Para páginas escaneadas. Reconoce el texto de la página visible y permite copiarlo. Requiere conexión a Internet para cargar el motor de OCR.</p><div class="toolbar"><button class="btn" id="ocrAllBtn">Reconocer PDF automáticamente</button><button class="btn secondary" id="ocrStopBtn" disabled>Detener</button><button class="btn secondary" id="ocrBtn">Reconocer esta página</button></div><p class="small">El reconocimiento se guarda por páginas en este navegador y se reutiliza en búsquedas y respuestas de IA. En documentos largos puede tardar; puedes detenerlo y reanudarlo sin perder lo ya procesado.</p><div id="ocrAllStatus" class="status"></div><div id="ocrStatus" class="status"></div><textarea id="ocrText" placeholder="El texto reconocido aparecerá aquí…" style="margin-top:10px;min-height:150px"></textarea><button class="btn secondary" id="copyOcr" style="margin-top:8px">Copiar texto</button></div><div class="panel"><h2>Marcadores</h2><div id="bookmarks" class="small">Sin marcadores</div></div><div class="panel"><h2>Tu avance</h2><div id="progress" class="muted"></div></div></aside></section>
 <div class="panel small">Primera versión funcional. Los PDF y apuntes se guardan únicamente en este dispositivo y navegador mediante IndexedDB. No se sincronizan entre móvil y ordenador; si borras los datos del navegador, podrías perderlos. Los PDF escaneados se pueden reconocer automáticamente mediante OCR. El texto reconocido se guarda en este navegador y se incorpora a las búsquedas y a la IA. El OCR puede contener errores; comprueba siempre la página original.</div>
