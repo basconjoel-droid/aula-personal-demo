@@ -148,7 +148,7 @@ function closeReaderMode(){document.body.classList.remove('reader-mode','tools-o
 $('backToLibrary').onclick=closeReaderMode;
 $('showTools').onclick=()=>document.body.classList.toggle('tools-open');
 $('quickExplain').onclick=()=>{document.body.classList.add('tools-open');document.querySelector('.tool-tab[data-tab="ia"]')?.click();$('askQuestion').focus()};
-$('homeTests').onclick=()=>location.href='./index.html';
+$('homeTests').onclick=()=>location.href='./index.html?page=test&v=7';
 $('homeProgress').onclick=()=>{document.getElementById('progressHome')?.scrollIntoView({behavior:'smooth'});};
 function msg(t){$('status').textContent=t}
 function request(r){return new Promise((res,rej)=>{r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
