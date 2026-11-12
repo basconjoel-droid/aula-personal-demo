@@ -27,5 +27,5 @@ export default {async fetch(request,env){
    {role:'user',content:'PREGUNTA:\n'+question+'\n\nFRAGMENTOS DEL PDF:\n'+passages}
   ],max_tokens:800,temperature:0.2});
   return reply({answer:String(result.response||'No se ha recibido respuesta.'),source_pages:sources.map(s=>s.page)},200,allowed);
- }catch(e){return reply({error:'Error al ejecutar Workers AI. Comprueba el modelo y la cuota gratuita.'},502,allowed)}
+ }catch(e){const detail=String(e?.message||e||'Error desconocido').slice(0,350);console.error('Workers AI failure:',detail);return reply({error:'Workers AI: '+detail},502,allowed)}
 }};
