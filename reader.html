@@ -273,9 +273,9 @@ $('generateQuiz').onclick=async()=>{
   const misses=missedQuestions();if(!misses.length){$('quizStatus').textContent='Aún no tienes preguntas falladas para repasar.';return}
   currentQuiz=[...misses].sort(()=>Math.random()-.5).slice(0,count);$('quizStatus').textContent='Repasando '+currentQuiz.length+' preguntas falladas.';showQuizQuestions();return;
  }
- const endpoint=$('aiEndpoint').value.trim().replace(/\\/+$/,'');
+ const endpoint=$('aiEndpoint').value.trim().replace(new RegExp('/+$'),'');
  const password=$('aiPassword').value||localStorage.getItem(AI_PASSWORD_KEY)||'';
- if(!/^https:\\/\\//.test(endpoint)||!password){$('quizStatus').textContent='Configura la IA y la contraseña en las herramientas del lector.';return}
+ if(!endpoint.startsWith('https://')||!password){$('quizStatus').textContent='Configura la IA y la contraseña en las herramientas del lector.';return}
  const btn=$('generateQuiz');btn.disabled=true;$('quizQuestions').replaceChildren();$('quizResults').replaceChildren();
  try{
   $('quizStatus').textContent='Buscando contenido en el temario…';
@@ -321,5 +321,5 @@ async function correctPdfQuiz(){
  $('quizResults').textContent='Resultado: '+correct+' de '+currentQuiz.length+' correctas · '+misses.length+' preguntas pendientes de repasar.';
  $('quizQuestions').querySelector('.quiz-finish')?.remove();updateQuizMode();
 }
-init().then(async()=>{const p=new URLSearchParams(location.search);if(p.get('quiz')!=='1'||!p.get('doc'))return;try{await openDoc(p.get('doc'));if(!pdf)return;const from=Number(p.get('from')),to=Number(p.get('to'));if(!Number.isInteger(from)||!Number.isInteger(to)||from<1||to<from||to>pdf.numPages){msg('El intervalo de páginas indicado no es válido para este PDF.');return}window.examQuizConfig={from,to,topic:p.get('topic')||'',mode:p.get('mode')||'Aleatorio'};$('quizFrom').value=String(from);$('quizTo').value=String(to);$('quizTopic').value=p.get('topic')||'';$('quizCount').value=p.get('count')||'5';document.body.classList.add('tools-open');const quiz=$('quizPanel');quiz.scrollIntoView({behavior:'smooth',block:'start'});if(window.examQuizConfig.mode==='Repasar fallos'){$('quizStatus').textContent='El repaso específico de fallos todavía no está disponible; se generarán preguntas nuevas de estas páginas.'}if(window.examQuizConfig.topic)$('quizStatus').textContent='Tema: '+window.examQuizConfig.topic+' · páginas '+from+'–'+to;setTimeout(()=>$('generateQuiz').click(),250)}catch(e){msg('No se pudo preparar el test: '+e.message)}}).catch(e=>msg('No se pudo iniciar la biblioteca local: '+e.message));
+init().catch(e=>msg('No se pudo iniciar la biblioteca local: '+e.message));
 </script></body></html>
