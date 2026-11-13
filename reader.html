@@ -198,7 +198,7 @@ async function put(name,val){return request(store(name,'readwrite').put(val))}
 async function remove(name,id){return request(store(name,'readwrite').delete(id))}
 
 /* Phase 10: offline JSON export/import, including PDF bytes and local study settings. */
-const BACKUP_KEYS=['aula-personal-folders-v1','aula-personal-quiz-misses-v2','aula-personal-exams-v1','aula-personal-study-plan-v1'];
+const BACKUP_KEYS=['aula-personal-folders-v1','aula-personal-quiz-misses-v2','aula-personal-exams-v1','aula-personal-study-plan-v1','aula-personal-quiz-stats-v1','aula-ai-endpoint'];
 function bytesToBase64(bytes){
  let parts=[];for(let i=0;i<bytes.length;i+=32768)parts.push(String.fromCharCode(...bytes.subarray(i,i+32768)));
  return btoa(parts.join(''));
@@ -376,6 +376,8 @@ async function renderFlashcards(){
  const p=document.createElement('p');p.textContent=current?(flashRevealed?current.back:current.front):'Crea tu primera tarjeta para comenzar.';side.append(p);
  $('flashFlip').textContent=flashRevealed?'Ver pregunta':'Mostrar respuesta';
  for(const id of ['flashFlip','flashPrev','flashNext','flashDelete','flashAgain','flashKnow'])$(id).disabled=!current;
+ $('flashPrev').disabled=!current||flashIndex===0;
+ $('flashNext').disabled=!current||flashIndex===cards.length-1;
 }
 $('flashAdd').onclick=async()=>{
  if(!pdf)return;const front=$('flashFront').value.trim(),back=$('flashBack').value.trim();
@@ -387,7 +389,7 @@ $('flashImport').onclick=async()=>{
  if(!pdf)return;const st=await state(),cards=await flashcards(),highlights=Object.entries(st.highlights||{});
  let added=0;
  for(const [n,items] of highlights)for(const item of items){
-  if(!item.text||cards.some(x=>x.sourceHighlight===item.id))continue;
+  if(!item.text||cards.some(x=>x.sourceHighlight===item.id&&x.page===Number(n)))continue;
   cards.push({id:crypto.randomUUID(),front:'¿Qué dice el fragmento subrayado de la página '+n+'?',back:item.text,page:Number(n),sourceHighlight:item.id,known:false,created:Date.now()});added++;
  }
  if(added)await saveFlashcards(cards);$('flashStatus').textContent=added?added+' tarjetas creadas a partir de subrayados. Puedes estudiar el texto literal.':'No hay subrayados nuevos para importar.';await renderFlashcards()
@@ -719,7 +721,8 @@ $('generateQuiz').onclick=async()=>{
  }catch(e){$('quizStatus').textContent='No se pudo generar el test: '+e.message}finally{btn.disabled=false}
 };
 async function correctPdfQuiz(expired=false){
- if(!currentQuiz.length||$('quizQuestions').querySelector('.quiz-finish')===null)return;const wasExam=examActive||expired;const elapsed=Math.max(1,Math.ceil((Date.now()-examStarted)/60000));stopExamClock();
+ if(!currentQuiz.length||$('quizQuestions').querySelector('.quiz-finish')===null)return;
+ $('quizQuestions').querySelector('.quiz-finish').remove();const wasExam=examActive||expired;const elapsed=Math.max(1,Math.ceil((Date.now()-examStarted)/60000));stopExamClock();
  let correct=0,misses=missedQuestions();
  const cards=[...$('quizQuestions').querySelectorAll('.quiz-question')];
  for(const [i,q] of currentQuiz.entries()){
