@@ -941,7 +941,7 @@ init().catch(e=>msg('No se pudo iniciar la biblioteca local: '+e.message));
  btn.addEventListener('click',async function(){
   if(typeof btn.onclick==='function')return;
   status.textContent='Comprobando conexión (modo diagnóstico)…';
-  const raw=document.getElementById('cloudSyncUrl').value.trim().replace(/\\/+$/,'');
+  const raw=document.getElementById('cloudSyncUrl').value.trim().replace(/\/+$/,'');
   const token=document.getElementById('cloudSyncToken').value.trim();
   try{
    const url=new URL(raw);
