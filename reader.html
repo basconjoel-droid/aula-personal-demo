@@ -933,4 +933,25 @@ function correctPdfQuiz(expired=false){
 }
 renderTopicStats();updateHomeReviewCount();
 init().catch(e=>msg('No se pudo iniciar la biblioteca local: '+e.message));
+</script><script>
+/* Independent connection check: works even if the PDF module cannot load. */
+(function(){
+ const btn=document.getElementById('cloudSyncCheck'),status=document.getElementById('cloudSyncStatus');
+ if(!btn||!status)return;
+ btn.addEventListener('click',async function(){
+  if(typeof btn.onclick==='function')return;
+  status.textContent='Comprobando conexión (modo diagnóstico)…';
+  const raw=document.getElementById('cloudSyncUrl').value.trim().replace(/\\/+$/,'');
+  const token=document.getElementById('cloudSyncToken').value.trim();
+  try{
+   const url=new URL(raw);
+   if(url.protocol!=='https:'||url.pathname!=='/'||url.search||url.hash)throw Error('Introduce la URL HTTPS base del Worker.');
+   if(!token)throw Error('Falta el token de sincronización.');
+   const response=await fetch(url.origin+'/sync/v1/object?key=progress',{headers:{Authorization:'Bearer '+token},cache:'no-store'});
+   const data=await response.json().catch(()=>({}));
+   status.textContent=response.status===404?'Conexión establecida: todavía no existe una copia remota.':response.ok?'Conexión establecida. Revisión '+data.revision+'.':'Error HTTP '+response.status+': '+(data.error||'Comprueba el Worker y el token.');
+  }catch(e){status.textContent='No se pudo comprobar: '+e.message}
+ });
+ if(!btn.onclick)status.textContent='Diagnóstico disponible: pulsa «Comprobar conexión».';
+})();
 </script></body></html>
