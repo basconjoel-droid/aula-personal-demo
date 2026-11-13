@@ -270,7 +270,7 @@ $('secureImportFile').onchange=async e=>{
 /* Cloud sync is opt-in, manual, encrypted and revision-checked. */
 const CLOUD_REV_KEY='aula-personal-cloud-revision-v1';
 function cloudConfig(){
- const raw=$('cloudSyncUrl').value.trim().replace(/\\/+$/,'');
+ const raw=$('cloudSyncUrl').value.trim().replace(/\/+$/,'');
  let url;try{url=new URL(raw)}catch{throw Error('Introduce la URL HTTPS del Worker.')}
  if(url.protocol!=='https:'||url.username||url.password||url.search||url.hash||url.pathname!=='/')throw Error('Introduce solo la URL HTTPS base del Worker, sin ruta ni parámetros.');
  const token=$('cloudSyncToken').value.trim(),password=$('secureTransferPassword').value;
